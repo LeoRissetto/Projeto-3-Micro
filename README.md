@@ -61,11 +61,11 @@ Aqui estão exemplos do funcionamento da simulação:
 
 1. Exibição da temperatura de 38,8°C:
 
-   <img src="imagens/2.png" width="400px">
+   <img src="imagens/2.png" width="600px">
 
 2. Exibição de execução variando a temperatura:
 
-   <img src="gifs/gif.gif" width="400px">
+   <img src="gifs/gif.gif" width="600px">
 
 ### Discussão:
 A implementação mostrou a importância da configuração correta de Vref para garantir leituras precisas do ADC em microcontroladores. A simulação do LM35 com um potenciômetro foi bem-sucedida, e a resposta do sistema foi rápida, exibindo mudanças de temperatura em tempo real no display LCD. 
