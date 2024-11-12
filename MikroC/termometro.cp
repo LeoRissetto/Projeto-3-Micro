@@ -48,7 +48,7 @@ void main()
 
 
 
- temperatura = (Valor_ADC * 100.0) / 1023.0;
+ temperatura = (Valor_ADC * 500.0) / 1023.0;
 
  if (temperatura >= 100)
  {

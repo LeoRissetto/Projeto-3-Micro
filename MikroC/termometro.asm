@@ -36,15 +36,15 @@ L_main0:
 	MOVLW       4
 	MOVWF       FARG_ADC_Read_channel+0 
 	CALL        _ADC_Read+0, 0
-;termometro.c,50 :: 		temperatura = (Valor_ADC * 100.0) / 1023.0; // Conversão proporcional
+;termometro.c,50 :: 		temperatura = (Valor_ADC * 500.0) / 1023.0; // Conversão proporcional
 	CALL        _word2double+0, 0
 	MOVLW       0
 	MOVWF       R4 
 	MOVLW       0
 	MOVWF       R5 
-	MOVLW       72
+	MOVLW       122
 	MOVWF       R6 
-	MOVLW       133
+	MOVLW       135
 	MOVWF       R7 
 	CALL        _Mul_32x32_FP+0, 0
 	MOVLW       0

@@ -59,7 +59,7 @@ O projeto foi implementado com sucesso no SimulIDE, e os resultados atendem aos 
 ### Exemplos do Funcionamento:
 Aqui estão exemplos do funcionamento da simulação:
 
-1. Exibição da temperatura de 38,8°C:
+1. Exibição da temperatura de 38,6°C:
 
    <img src="imagens/2.png" width="600px">
 

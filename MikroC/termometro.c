@@ -47,7 +47,7 @@ void main()
 
         // Conversão do valor do ADC para temperatura (0 a 100 °C)
         // 1023 corresponde a 1V (100°C), então a relação é linear
-        temperatura = (Valor_ADC * 100.0) / 1023.0; // Conversão proporcional
+        temperatura = (Valor_ADC * 500.0) / 1023.0; // Conversão proporcional
 
         if (temperatura >= 100)
         {
