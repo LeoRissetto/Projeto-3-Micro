@@ -1,6 +1,3 @@
-// Device: PIC18F4550 - Clock = 8 MHz
-// Simulação de sensor LM35 com potenciômetro, leitura ADC, e exibição no display LCD
-
 /* Include */
 
 /* Diretivas de pré-compilação */
@@ -52,16 +49,31 @@ void main()
         // 1023 corresponde a 1V (100°C), então a relação é linear
         temperatura = (Valor_ADC * 100.0) / 1023.0; // Conversão proporcional
 
-        // Formatar a temperatura para exibição no display LCD (com 1 casa decimal)
-        temp_str[0] = (int)(temperatura / 10) + '0';      // Dezena
-        temp_str[1] = (int)(temperatura) % 10 + '0';      // Unidade
-        temp_str[2] = '.';                                // Ponto decimal
-        temp_str[3] = (int)(temperatura * 10) % 10 + '0'; // Primeira casa decimal
-        temp_str[4] = 0;                                  // Terminador NULL para finalizar a string
+        if (temperatura >= 100)
+        {
+            // Formatar a temperatura para exibição no display LCD (com 1 casa decimal)
+            temp_str[0] = '1';
+            temp_str[1] = '0';
+            temp_str[2] = '0';
+            temp_str[3] = '.';
+            temp_str[4] = '0';
+            temp_str[5] = 0; // Terminador NULL para finalizar a string
+        }
+        else
+        {
+            // Formatar a temperatura para exibição no display LCD (com 1 casa decimal)
+            temp_str[0] = (int)(temperatura / 10) + '0';      // Dezena
+            temp_str[1] = (int)(temperatura) % 10 + '0';      // Unidade
+            temp_str[2] = '.';                                // Ponto decimal
+            temp_str[3] = (int)(temperatura * 10) % 10 + '0'; // Primeira casa decimal
+            temp_str[4] = ' ';
+            temp_str[5] = 0; // Terminador NULL para finalizar a string
+        }
 
         // Exibir a temperatura no display LCD
         Lcd_Out(1, 7, temp_str); // Mostra a temperatura na primeira linha, posição 7
-        Lcd_Out(1, 11, "C");     // Exibe o símbolo de grau Celsius "C"
+        Lcd_Chr(1, 12, 223);     // Exibe o símbolo de grau usando código ASCII 223
+        Lcd_Out(1, 13, "C");     // Exibe a letra 'C'
 
         Delay_ms(200); // Pequeno atraso para a próxima leitura
     }

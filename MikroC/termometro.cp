@@ -5,9 +5,6 @@
 
 
 
-
-
-
 sbit LCD_RS at LATB4_bit;
 sbit LCD_EN at LATB5_bit;
 sbit LCD_D4 at LATB0_bit;
@@ -53,16 +50,31 @@ void main()
 
  temperatura = (Valor_ADC * 100.0) / 1023.0;
 
+ if (temperatura >= 100)
+ {
+
+ temp_str[0] = '1';
+ temp_str[1] = '0';
+ temp_str[2] = '0';
+ temp_str[3] = '.';
+ temp_str[4] = '0';
+ temp_str[5] = 0;
+ }
+ else
+ {
 
  temp_str[0] = (int)(temperatura / 10) + '0';
  temp_str[1] = (int)(temperatura) % 10 + '0';
  temp_str[2] = '.';
  temp_str[3] = (int)(temperatura * 10) % 10 + '0';
- temp_str[4] = 0;
+ temp_str[4] = ' ';
+ temp_str[5] = 0;
+ }
 
 
  Lcd_Out(1, 7, temp_str);
- Lcd_Out(1, 11, "C");
+ Lcd_Chr(1, 12, 223);
+ Lcd_Out(1, 13, "C");
 
  Delay_ms(200);
  }

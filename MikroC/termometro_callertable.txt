@@ -34,7 +34,13 @@ main
 		RES032
 		SETFOV32
 		SETFUN32
+	Compare_Double
 	double2int
 		SETIOV3224
 	Div_16x16_S
 		Div_16x16_S_L
+	Lcd_Chr
+		Lcd_Cmd
+			Delay_1us
+			Delay_5500us
+			Delay_50us
